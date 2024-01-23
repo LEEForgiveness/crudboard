@@ -46,13 +46,20 @@ public class BasicBoardController {
         return "redirect:/basic/boards/{boardId}";
     }
 
+    @GetMapping("/{boardId}/edit")
+    public String editForm(@PathVariable("boardId") Long boardId, Model model){
+        Board board = boardRepository.findById(boardId);
+        model.addAttribute("board", board);
+        return "basic/editForm";
+    }
+
     @PostMapping("/{boardId}/edit")
     public String edit(@PathVariable("boardId") Long boardId, @ModelAttribute Board board){
         boardRepository.update(boardId, board);
         return "redirect:/basic/boards/{boardId}";
     }
 
-    @PostMapping("/{boardId}/delete")
+    @GetMapping("/{boardId}/delete")
     public String delete(@PathVariable("boardId") Long boardId, @ModelAttribute Board board){
         boardRepository.delete(boardId);
         return "redirect:/basic/boards";

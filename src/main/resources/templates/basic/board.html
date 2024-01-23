@@ -41,7 +41,8 @@
         </div>
         <div class="bt_wrap">
             <a href="list.html" th:href="@{/basic/boards}" class="on">목록</a>
-            <a href="edit.html" th:href="@{/basic/boards/edit/{boardId}(boardId=${board.id})}">수정</a>
+            <a href="edit.html" th:href="@{/basic/boards/{boardId}/edit(boardId=${board.id})}">수정</a>
+            <a href="delete.html" th:href="@{/basic/boards/{boardId}/delete(boardId=${board.id})}">삭제</a>
         </div>
     </div>
 </div>
